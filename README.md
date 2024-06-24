@@ -9,7 +9,7 @@ This is an older project without a git history.
 - Animations
 
 ## Demo
-Check out the live demo [here](tictactoe.hannes-link.de).
+Check out the live demo [here](https://tictactoe.hannes-link.de/).
 
 ## Technologies Used
 - HTML
