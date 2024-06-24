@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
     <title>Tic Tac Toe</title>
@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>TicTacToe</h1>
-        <img src="static/icon/tic-tac-toe-game.svg" class="center" width="64">
+        <img src="static/icon/tic-tac-toe-game.svg" class="center" width="64" alt="decorative">
         <input name="player1" id="player1" placeholder="Spieler 1" type="text" required>
         <br>
         <input name="player2" id="player2" placeholder="Spieler 2" type="text" required>
@@ -58,16 +58,16 @@
         let player2 = document.getElementById('player2').value;
         sessionStorage.setItem("player1", player1);
         sessionStorage.setItem("player2", player2);
-        if (player1 != "" && player2 != "") {
-            let inputFileds = document.querySelectorAll("input[type=text]");
-            inputFileds.forEach(element => {
+        if (player1 !== "" && player2 !== "") {
+            let inputFields = document.querySelectorAll("input[type=text]");
+            inputFields.forEach(element => {
                 element.style.border = "none";
             })
             window.location.href = window.location.origin + "/tictactoe.html";
         }
         else {
-            let inputFileds = document.querySelectorAll("input[type=text]");
-            inputFileds.forEach(element => {
+            let inputFields = document.querySelectorAll("input[type=text]");
+            inputFields.forEach(element => {
                 element.style.border = "2px solid red";
             })
         }

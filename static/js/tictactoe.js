@@ -6,14 +6,14 @@ playerInfo.innerHTML = sessionStorage.getItem('player1') + " ist am Zug"
 let player = 1;
 
 function checkIfNamesInSessionStorage(){
-    if(sessionStorage.getItem('player1') == "" ||sessionStorage.getItem('player2') == "" ){
+    if(sessionStorage.getItem('player1') === "" ||sessionStorage.getItem('player2') === "" ){
         history.back();
     }
 }
 
 checkIfNamesInSessionStorage();
 
-var playground = [
+let playground = [
     [null,null,null],
     [null,null,null],
     [null,null,null]
@@ -93,10 +93,10 @@ function compute(event){
         if (isDescribed(button))
             return;
 
-        if (player == 1) {
+        if (player === 1) {
             button.classList.add("donut");
             updatePlayground(button, player);
-            if(validatePlayground() != false){
+            if(validatePlayground() !== false){
                 document.getElementById('win').style.display = "block";
                 document.getElementById('win').innerHTML = validatePlayground() + " hat gewonnen";
                 disableButtons();
@@ -108,14 +108,13 @@ function compute(event){
                 return;
             }
         }
-        if (player == 10) {
+        if (player === 10) {
             button.classList.add("burger");
             updatePlayground(button, player);
-            if(validatePlayground() != false){
+            if(validatePlayground() !== false){
                 document.getElementById('win').style.display = "block";
                 document.getElementById('win').innerHTML = validatePlayground() + " hat gewonnen";
                 disableButtons();
-                return
             }
             else {
                 playerInfo.innerHTML = sessionStorage.getItem('player1') + " ist am Zug"
