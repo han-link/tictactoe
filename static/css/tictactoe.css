@@ -1,0 +1,124 @@
+body {
+  background-color: var(--secondary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#playerInfo {
+  color: rgb(228, 228, 228);
+  margin-left: auto;
+  margin-right: auto;
+  width: 90vw;
+  max-width: 400px;
+}
+
+.playground {
+  width: 90vw;
+  max-width: 400px;
+  height: 90vw;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playground div {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.donut {
+  background-image: url("/static/icon/donut.svg");
+  background-repeat: no-repeat;
+}
+
+.burger {
+  background-image: url("/static/icon/burger.svg");
+  background-repeat: no-repeat;
+}
+
+
+table,
+tbody,
+tr {
+  width: 95%;
+}
+
+td {
+  width: 30%;
+  height: 30%;
+  padding: 0px;
+  border: 5px solid #dd9333;
+}
+
+td {
+  border-top: none;
+  border-right: none;
+}
+
+td:first-child {
+  border-left: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+button {
+  border: none;
+  height: 50px;
+  width: 250px;
+}
+
+button.reset {
+  background-color: red;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+button.newGame {
+  background-color: greenyellow;
+}
+
+div.winner {
+  background-color: red;
+  position: fixed;
+  width: 100%;
+  padding: 25px;
+  top: 180px;
+  opacity: 0.8;
+  font-size: 70px;
+  text-align: center;
+  display: none;
+}
+
+.game {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 100%;
+}
+
+.fall-out {
+  position: relative;
+  animation-name: fall;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes fall {
+  0% {
+      top: 0;
+      left: 0;
+  }
+  40% {
+      top: -10vh;
+      left: calc(3vw * var(--direction));
+      animation-timing-function: ease-in;
+  }
+  100% {
+      top: 100vh;
+      left: calc(13vw * var(--direction));
+      animation-timing-function: ease-in;
+  }
+}

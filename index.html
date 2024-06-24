@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tic Tac Toe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="static/icon/tic-tac-toe-game.svg">
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>TicTacToe</h1>
+        <img src="static/icon/tic-tac-toe-game.svg" class="center" width="64">
+        <input name="player1" id="player1" placeholder="Spieler 1" type="text" required>
+        <br>
+        <input name="player2" id="player2" placeholder="Spieler 2" type="text" required>
+        <br>
+        <input type="submit" value="New Game" onclick="setPlayerNames()">
+    </div>
+    <ul class="background">
+        <li>
+            <img src="/static/icon/burger.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/donut.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/burger.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/donut.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/burger.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/donut.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/burger.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/donut.svg" alt="decorative">
+        </li>
+        <li>
+            <img src="/static/icon/burger.svg" alt="decorative">
+        </li>
+        <li>
+        </li>
+    </ul>
+</body>
+<script>
+    console.log(window.location.origin);
+    function setPlayerNames() {
+        let player1 = document.getElementById('player1').value;
+        let player2 = document.getElementById('player2').value;
+        sessionStorage.setItem("player1", player1);
+        sessionStorage.setItem("player2", player2);
+        if (player1 != "" && player2 != "") {
+            let inputFileds = document.querySelectorAll("input[type=text]");
+            inputFileds.forEach(element => {
+                element.style.border = "none";
+            })
+            window.location.href = window.location.origin + "/tictactoe.html";
+        }
+        else {
+            let inputFileds = document.querySelectorAll("input[type=text]");
+            inputFileds.forEach(element => {
+                element.style.border = "2px solid red";
+            })
+        }
+    }
+</script>
+
+</html>
