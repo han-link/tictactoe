@@ -27,12 +27,12 @@ body {
 }
 
 .donut {
-  background-image: url("/static/icon/donut.svg");
+  background-image: url("donut.svg");
   background-repeat: no-repeat;
 }
 
 .burger {
-  background-image: url("/static/icon/burger.svg");
+  background-image: url("burger.svg");
   background-repeat: no-repeat;
 }
 
