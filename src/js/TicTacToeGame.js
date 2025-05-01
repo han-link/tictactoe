@@ -27,7 +27,7 @@ export default class TicTacToeGame {
     }
 
     updatePlayerInfo() {
-        this.playerInfo.innerHTML = `${this.currentPlayer.name} ist am Zug`;
+        this.playerInfo.textContent = `${this.currentPlayer.name} ist am Zug`;
     }
 
     handleMove(event) {
@@ -37,6 +37,7 @@ export default class TicTacToeGame {
 
         if (this.board.isCellOccupied(x, y)) return;
 
+        button.classList.add(this.currentPlayer.cssClass);
         this.board.updateCell(x, y, this.currentPlayer);
 
         const winnerId = this.board.checkWinner();
@@ -44,6 +45,16 @@ export default class TicTacToeGame {
             this.showWinner(winnerId);
             this.disableButtons();
             return;
+        }
+
+        if (this.board.round > 4) {
+            const oldestCell = this.board.removeOldest();
+            const cssClassToRemove = oldestCell.playerId === 1 ? this.player1.cssClass : this.player2.cssClass;
+
+            const targetButton = document.querySelector(`div[data-x="${oldestCell.x}"][data-y="${oldestCell.y}"]`);
+            if (targetButton) {
+                targetButton.classList.remove(cssClassToRemove);
+            }
         }
 
         this.switchPlayer();
@@ -57,7 +68,7 @@ export default class TicTacToeGame {
     showWinner(winnerId) {
         const winner = winnerId === 1 ? this.player1 : this.player2;
         this.winnerDisplay.style.display = "block";
-        this.winnerDisplay.innerHTML = `${winner.name} hat gewonnen`;
+        this.winnerDisplay.textContent = `${winner.name} hat gewonnen`;
 
         document.querySelectorAll(`.${winner.cssClass}`).forEach(el => el.classList.add('fall-out'));
     }
