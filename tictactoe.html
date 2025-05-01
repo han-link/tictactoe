@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Tic Tac Toe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/assets/tic-tac-toe-game-BRd-OvY6.svg">
+<script type="module" crossorigin src="/assets/about-BQZDICtd.js"></script>
+<link rel="modulepreload" crossorigin href="/assets/main-8ukwXcvQ.js">
+<link rel="stylesheet" crossorigin href="/assets/main-BNBjN1As.css">
+<link rel="stylesheet" crossorigin href="/assets/about-C8_a_3_8.css">
+
+<body>
+    <div class="winner" id="win">Hat gewonnen</div>
+    <div class="game">
+        <h2 id="playerInfo"></h2>
+        <table class="playground">
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="0"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton"  style="--direction: 1;" data-x="1" data-y="0"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="0"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="1"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="1" data-y="1"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="2" data-y="1"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="0" data-y="2"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="1" data-y="2"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="2"></div>
+                </td>
+            </tr>
+        </table>
+        <button class="reset">Reset game</button>
+        <button class="newGame">Create new Game</button>
+    </div>
+</body>
+
+</html>
