@@ -1,43 +1,49 @@
 import GameBoard from './GameBoard.js';
 import Player from './Player.js';
+import UIManager from "./ui/UIManager.js";
 
 export default class TicTacToeGame {
     constructor() {
+        this.ui = new UIManager();
         this.board = new GameBoard();
-        this.player1 = new Player(1, sessionStorage.getItem('player1'), 'donut');
-        this.player2 = new Player(10, sessionStorage.getItem('player2'), 'burger');
-        this.currentPlayer = this.player1;
-
         this.buttonList = document.querySelectorAll(".playgroundButton");
-        this.playerInfo = document.getElementById("playerInfo");
-        this.winnerDisplay = document.getElementById('win');
+        this.boundHandleMove = this.handleMove.bind(this);
 
-        this.checkSessionStorage();
-        this.updatePlayerInfo();
-        this.initButtons();
-
-        document.querySelector('.newGame').addEventListener('click', this.createNewGame);
-        document.querySelector('.reset').addEventListener('click', () => this.resetGame());
+        this.initGame();
+        this.bindEventListener();
     }
 
-    checkSessionStorage() {
-        if (!this.player1.name || !this.player2.name) {
-            history.back();
+    initGame(pl1 = null, pl2 = null) {
+        const sessionInfo = {
+            player1: sessionStorage.getItem('player1'),
+            player2: sessionStorage.getItem('player2')
+        }
+
+        if (sessionInfo.player1 && sessionInfo.player2 || pl1 && pl2) {
+            this.player1 = new Player(1, sessionInfo.player1 || pl1, 'donut');
+            this.player2 = new Player(10, sessionInfo.player2 || pl2, 'burger');
+            if(pl1 && pl2) {
+                sessionStorage.setItem('player1', pl1);
+                sessionStorage.setItem('player2', pl2);
+            }
+            this.currentPlayer = this.player1;
+            this.ui.updateTurn(this.currentPlayer.name);
+            this.initButtons();
+            this.ui.showGame();
+        } else {
+            this.ui.bindNewGame(this.initGame.bind(this));
         }
     }
 
-    updatePlayerInfo() {
-        this.playerInfo.textContent = `${this.currentPlayer.name} ist am Zug`;
+    bindEventListener() {
+        this.ui.bindRestartGame(this.startNewGame.bind(this));
+        this.ui.bindResetGame(this.resetGame.bind(this));
     }
 
-    handleMove(event) {
-        const button = event.currentTarget;
-        const x = parseInt(button.getAttribute("data-x"));
-        const y = parseInt(button.getAttribute("data-y"));
-
+    handleMove(x, y, button) {
         if (this.board.isCellOccupied(x, y)) return;
 
-        button.classList.add(this.currentPlayer.cssClass);
+        this.ui.markCell(button, this.currentPlayer.cssClass);
         this.board.updateCell(x, y, this.currentPlayer);
 
         const winnerId = this.board.checkWinner();
@@ -50,15 +56,11 @@ export default class TicTacToeGame {
         if (this.board.round > 4) {
             const oldestCell = this.board.removeOldest();
             const cssClassToRemove = oldestCell.playerId === 1 ? this.player1.cssClass : this.player2.cssClass;
-
-            const targetButton = document.querySelector(`div[data-x="${oldestCell.x}"][data-y="${oldestCell.y}"]`);
-            if (targetButton) {
-                targetButton.classList.remove(cssClassToRemove);
-            }
+            this.ui.unmarkCell(oldestCell.x, oldestCell.y, cssClassToRemove);
         }
 
         this.switchPlayer();
-        this.updatePlayerInfo();
+        this.ui.updateTurn(this.currentPlayer.name);
     }
 
     switchPlayer() {
@@ -67,10 +69,8 @@ export default class TicTacToeGame {
 
     showWinner(winnerId) {
         const winner = winnerId === 1 ? this.player1 : this.player2;
-        this.winnerDisplay.style.display = "block";
-        this.winnerDisplay.textContent = `${winner.name} hat gewonnen`;
-
-        document.querySelectorAll(`.${winner.cssClass}`).forEach(el => el.classList.add('fall-out'));
+        const loser = winnerId === 1 ? this.player2 : this.player1;
+        this.ui.showWinner(winner, loser)
     }
 
     disableButtons() {
@@ -80,24 +80,21 @@ export default class TicTacToeGame {
     }
 
     initButtons() {
-        this.boundHandleMove = this.handleMove.bind(this);
-        this.buttonList.forEach(btn => {
-            btn.addEventListener('click', this.boundHandleMove);
-        });
+        this.ui.bindMoveHandler(this.boundHandleMove);
     }
 
     resetGame() {
         this.board.resetBoard();
-        this.buttonList.forEach(btn => {
-            btn.classList.remove("donut", "burger", "fall-out");
-        });
+        this.ui.resetBoardUI();
         this.currentPlayer = this.player1;
-        this.updatePlayerInfo();
-        this.winnerDisplay.style.display = "none";
+        this.ui.updateTurn(this.currentPlayer.name);
         this.initButtons();
     }
 
-    createNewGame() {
-        window.location.href = window.location.origin + "/";
+    startNewGame() {
+        sessionStorage.removeItem('player1')
+        sessionStorage.removeItem('player2')
+        this.ui.startNewGame();
+        this.initButtons();
     }
 }

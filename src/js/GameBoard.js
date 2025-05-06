@@ -18,7 +18,6 @@ export default class GameBoard {
     removeOldest() {
         const oldestField = this.timeLine.shift();
         this.board[oldestField.y][oldestField.x] = null;
-        console.log(this.board, oldestField.x, oldestField.y);
         return oldestField;
     }
 
