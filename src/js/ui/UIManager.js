@@ -52,12 +52,12 @@ export default class UIManager {
         this.resetBoardUI();
         this.#game.hide();
         this.#modal.showModal();
-        this.#background.startAnimations();
+        this.#background.showAnimations();
     }
 
     showGame() {
         this.#modal.hideModal();
-        this.#background.stopAnimations();
+        this.#background.hideAnimations();
         this.#game.show()
     }
 }

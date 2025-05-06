@@ -17,15 +17,17 @@ export default class TicTacToeGame {
         const sessionInfo = {
             player1: sessionStorage.getItem('player1'),
             player2: sessionStorage.getItem('player2')
-        }
+        };
 
         if (sessionInfo.player1 && sessionInfo.player2 || pl1 && pl2) {
             this.player1 = new Player(1, sessionInfo.player1 || pl1, 'donut');
             this.player2 = new Player(10, sessionInfo.player2 || pl2, 'burger');
-            if(pl1 && pl2) {
+
+            if (pl1 && pl2) {
                 sessionStorage.setItem('player1', pl1);
                 sessionStorage.setItem('player2', pl2);
             }
+
             this.currentPlayer = this.player1;
             this.ui.updateTurn(this.currentPlayer.name);
             this.initButtons();
@@ -34,6 +36,7 @@ export default class TicTacToeGame {
             this.ui.bindNewGame(this.initGame.bind(this));
         }
     }
+
 
     bindEventListener() {
         this.ui.bindRestartGame(this.startNewGame.bind(this));

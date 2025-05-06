@@ -116,23 +116,24 @@ a.github:hover img {
     animation-iteration-count: infinite;
 }
 
-.background li:nth-child(0) {
+.background li:nth-child(1) {
     left: 77%;
     width: 186px;
     height: 186px;
-    bottom: 109px;
+    bottom: -199px;
     animation-delay: 0s;
-}
-
-.background li:nth-child(1) {
-    left: 13%;
-    width: 109px;
-    height: 109px;
-    bottom: -109px;
-    animation-delay: 0s;
+    border-color: red;
 }
 
 .background li:nth-child(2) {
+    left: 13%;
+    width: 109px;
+    height: 109px;
+    bottom: -149px;
+    animation-delay: 0s;
+}
+
+.background li:nth-child(3) {
     left: 7%;
     width: 195px;
     height: 195px;
@@ -140,7 +141,7 @@ a.github:hover img {
     animation-delay: 7s;
 }
 
-.background li:nth-child(3) {
+.background li:nth-child(4) {
     left: 82%;
     width: 194px;
     height: 194px;
@@ -148,7 +149,7 @@ a.github:hover img {
     animation-delay: 5s;
 }
 
-.background li:nth-child(4) {
+.background li:nth-child(5) {
     left: 15%;
     width: 108px;
     height: 108px;
@@ -156,7 +157,7 @@ a.github:hover img {
     animation-delay: 19s;
 }
 
-.background li:nth-child(5) {
+.background li:nth-child(6) {
     left: 24%;
     width: 118px;
     height: 118px;
@@ -164,7 +165,7 @@ a.github:hover img {
     animation-delay: 18s;
 }
 
-.background li:nth-child(6) {
+.background li:nth-child(7) {
     left: 41%;
     width: 123px;
     height: 123px;
@@ -172,7 +173,7 @@ a.github:hover img {
     animation-delay: 21s;
 }
 
-.background li:nth-child(7) {
+.background li:nth-child(8) {
     left: 64%;
     width: 176px;
     height: 176px;
@@ -180,20 +181,12 @@ a.github:hover img {
     animation-delay: 19s;
 }
 
-.background li:nth-child(8) {
+.background li:nth-child(9) {
     left: 12%;
     width: 174px;
     height: 174px;
     bottom: -174px;
     animation-delay: 14s;
-}
-
-.background li:nth-child(9) {
-    left: 83%;
-    width: 121px;
-    height: 121px;
-    bottom: -121px;
-    animation-delay: 18s;
 }
 
 .center {
