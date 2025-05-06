@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Tic Tac Toe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/x-icon" href="public/tic-tac-toe-game.svg">
+<body>
+<div class="container newGameModal">
+    <h1>TicTacToe</h1>
+    <img src="/tic-tac-toe-game.svg" class="center" width="64" alt="decorative">
+    <form id="createGameForm">
+        <label for="player1" class="hidden">Player 1</label>
+        <input name="player1" id="player1" placeholder="Spieler 1" type="text" required>
+        <br>
+        <label for="player2" class="hidden">Player 2</label>
+        <input name="player2" id="player2" placeholder="Spieler 2" type="text" required>
+        <br>
+        <input type="submit" value="New Game">
+    </form>
+</div>
+<div class="winner" id="win">Hat gewonnen</div>
+<div class="game">
+    <h2 id="playerInfo"></h2>
+    <table class="playground">
+        <tr>
+            <td>
+                <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="0"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: 1;" data-x="1" data-y="0"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="0"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="1"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: -1;" data-x="1" data-y="1"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: 1;" data-x="2" data-y="1"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="playgroundButton" style="--direction: -1;" data-x="0" data-y="2"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: 1;" data-x="1" data-y="2"></div>
+            </td>
+            <td>
+                <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="2"></div>
+            </td>
+        </tr>
+    </table>
+    <button class="reset">Reset game</button>
+    <button class="newGame">Create new Game</button>
+</div>
+<ul class="background">
+    <li>
+        <img src="/burger.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/donut.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/burger.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/donut.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/burger.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/donut.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/burger.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/donut.svg" alt="decorative">
+    </li>
+    <li>
+        <img src="/burger.svg" alt="decorative">
+    </li>
+</ul>
+<script type="module" src="src/js/index.js"></script>
+</body>
+
+</html>
