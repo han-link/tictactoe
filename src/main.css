@@ -6,20 +6,33 @@
     --shadow: rgba(0, 0, 0, 0.45);
 }
 
-body {
+* {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
     background-color: var(--secondary);
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 nav {
     position: fixed;
+    width: 100%; /* instead of 100vw */
     top: 0;
     background-color: var(--primary);
-    width: 100%;
     box-shadow: 0 14px 28px 10px var(--shadow);
-    padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+    z-index: 999;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 main {
@@ -59,34 +72,38 @@ main {
     }
 }
 
-a.github {
+.btn {
     background-color: transparent;
     color: white;
     border: 2px solid white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0.75em 1em;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: fit-content;
+    font-size: 16px;
 }
 
-a.github:hover {
+.btn:hover {
     background-color: white;
     border-color: #fff;
     color: black;
 }
 
-a.github img {
-    height: 20px;
-    width: 20px;
+.btn img {
+    height: 1em; /* oder 16px */
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
     transition: filter 0.3s;
 }
 
-a.github:hover img {
+
+.btn:hover img {
     filter: brightness(0) saturate(100%);
 }
 
@@ -207,7 +224,6 @@ a.github:hover img {
 }
 
 input,
-button,
 label {
     width: 90%;
     height: 30px;
@@ -217,6 +233,18 @@ label {
     margin-left: auto;
     border-radius: 3px;
     border: none;
+}
+
+.btn-2 {
+    width: 90%;
+    height: 30px;
+    font-size: 15px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 3px;
+    border: none;
+
 }
 
 h1 {
@@ -313,12 +341,6 @@ input[type="text"]:hover {
     background-image: url("/public/burger.svg");
 }
 
-button {
-    border: none;
-    height: 50px;
-    width: 250px;
-}
-
 button.reset {
     background-color: red;
     margin-top: 1em;
@@ -354,4 +376,61 @@ div.winner {
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+}
+
+.sidebar {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    background-color: var(--secondary);
+    z-index: 1000;
+    transition: 0.5s;
+    overflow-x: hidden;
+    padding-top: 1em;
+}
+
+.sidebar.show {
+    width: 50vw;
+    padding: 1em;
+}
+
+@media (max-width: 600px) {
+    .sidebar.show {
+        width: 80vw;
+    }
+}
+
+.sidebar button.close {
+    width: 3em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-left: 0;
+    padding: 0;
+}
+
+.sidebar button.close svg {
+    width: 2em;
+    height: 2em;
+}
+
+.sidebar button.close:hover {
+    background-color: white;
+}
+
+.sidebar button.close svg path {
+    transition: 0.3s;
+}
+
+.sidebar button.close:hover svg path {
+    fill: black;
+}
+
+.blur {
+    filter: blur(2px);
 }

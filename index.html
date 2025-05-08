@@ -8,11 +8,34 @@
     <link rel="icon" type="image/x-icon" href="public/tic-tac-toe-game.svg">
 <body>
 <nav>
-    <a class="github" href="https://github.com/han-link/tictactoe">
-        <img alt="github icon" src="/github.svg">
-        Github
-    </a>
+    <div class="nav-inner">
+        <a class="btn" href="https://github.com/han-link/tictactoe">
+            <img alt="github icon" src="/github.svg">
+            Github
+        </a>
+        <button class="openSidebar btn">Info</button>
+    </div>
 </nav>
+
+<div class="sidebar gameRules">
+    <button class="close btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-lg"
+             viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg>
+    </button>
+    <h2>TicTacToe Game Rules</h2>
+    <p>
+        This is a standard TicTacToe game with a unique twist. The rules are as follows:
+    </p>
+    <ul>
+        <li>Two players take turns marking a cell in a 3x3 grid with burger or donut.</li>
+        <li>The first player to align three marks in a row, column, or diagonal wins.</li>
+        <li><strong>Special rule:</strong> On the third move (and onwards), the oldest of the last three moves is
+            removed from the board.
+        </li>
+    </ul>
+</div>
 <main>
     <div class="container newGameModal">
         <h1>TicTacToe</h1>
@@ -65,8 +88,8 @@
                 </td>
             </tr>
         </table>
-        <button class="reset">Reset game</button>
-        <button class="newGame">Create new Game</button>
+        <button class="btn-2 reset">Reset game</button>
+        <button class="btn-2 newGame">Create new Game</button>
     </div>
     <ul class="background">
         <li>

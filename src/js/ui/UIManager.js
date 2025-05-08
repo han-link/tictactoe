@@ -1,15 +1,38 @@
 import GameUI from './GameUI.js';
 import NewGameModal from './NewGameModal.js';
 import BackgroundUI from './BackgroundUI.js';
+import Sidebar from "./Sidebar.js";
 
 export default class UIManager {
     #game;
     #background;
     #modal;
+    #sidebar
+    #main;
+    #nav;
     constructor() {
         this.#game = new GameUI();
         this.#modal = new NewGameModal();
         this.#background = new BackgroundUI();
+        this.#sidebar = new Sidebar();
+        this.#main = document.querySelector('main');
+        this.#nav = document.querySelector('nav');
+        this.bindUiEvents();
+    }
+
+    #blur() {
+        this.#main.classList.add('blur');
+        this.#nav.classList.add('blur');
+    }
+
+    #removeBlur() {
+        this.#main.classList.remove('blur');
+        this.#nav.classList.remove('blur');
+    }
+
+    bindUiEvents() {
+        this.#sidebar.bindShow(this.#blur.bind(this));
+        this.#sidebar.bindHide(this.#removeBlur.bind(this));
     }
 
     bindMoveHandler(handler) {
