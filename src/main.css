@@ -244,6 +244,7 @@ label {
     margin-left: auto;
     border-radius: 3px;
     border: none;
+    max-width: 300px;
 
 }
 
@@ -334,11 +335,11 @@ input[type="text"]:hover {
 }
 
 .donut {
-    background-image: url("/public/donut.svg");
+    background-image: url("/donut.svg");
 }
 
 .burger {
-    background-image: url("/public/burger.svg");
+    background-image: url("/burger.svg");
 }
 
 button.reset {
@@ -364,6 +365,7 @@ div.winner {
 }
 
 .game {
+    margin-top: 70px;
     margin-left: 2rem;
     margin-right: 2rem;
     width: 100%;
