@@ -5,9 +5,10 @@
     <title>Tic Tac Toe</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" type="image/x-icon" href="/assets/tic-tac-toe-game-BRd-OvY6.svg">
-<script type="module" crossorigin src="/assets/index-BHWPeGbF.js"></script>
-<link rel="stylesheet" crossorigin href="/assets/index-C6IU6_La.css">
+    <link rel="icon" type="image/x-icon" href="/tic-tac-toe-game.svg">
+    <link rel="manifest" href="/manifest.json">
+<script type="module" crossorigin src="/assets/index.js"></script>
+<link rel="stylesheet" crossorigin href="/assets/index.css">
 
 <body>
 <nav>
@@ -124,6 +125,11 @@
         </li>
     </ul>
 </main>
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' });
+    }
+</script>
 </body>
 
 </html>
