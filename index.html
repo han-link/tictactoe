@@ -4,74 +4,130 @@
 <head>
     <title>Tic Tac Toe</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="static/icon/tic-tac-toe-game.svg">
-    <link rel="stylesheet" href="static/css/main.css">
-</head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/x-icon" href="/tic-tac-toe-game.svg">
+    <link rel="manifest" href="/manifest.json">
 <body>
-    <div class="container">
+<nav>
+    <div class="nav-inner">
+        <a class="btn" href="https://github.com/han-link/tictactoe">
+            <img alt="github icon" src="/github.svg">
+            Github
+        </a>
+        <button class="openSidebar btn">Info</button>
+    </div>
+</nav>
+
+<div class="sidebar gameRules">
+    <button class="close btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-lg"
+             viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+        </svg>
+    </button>
+    <h2>TicTacToe Game Rules</h2>
+    <p>
+        This is a standard TicTacToe game with a twist. The rules are as follows:
+    </p>
+    <ul>
+        <li>Two players take turns marking a cell in a 3x3 grid with burger or donut.</li>
+        <li>The first player to align three marks in a row, column, or diagonal wins.</li>
+        <li><strong>Special rule:</strong> On the third move (and onwards), the oldest of the last three moves is
+            removed from the board.
+        </li>
+    </ul>
+</div>
+<main>
+    <div class="container newGameModal">
         <h1>TicTacToe</h1>
-        <img src="static/icon/tic-tac-toe-game.svg" class="center" width="64" alt="decorative">
-        <input name="player1" id="player1" placeholder="Spieler 1" type="text" required>
-        <br>
-        <input name="player2" id="player2" placeholder="Spieler 2" type="text" required>
-        <br>
-        <input type="submit" value="New Game" onclick="setPlayerNames()">
+        <img src="/tic-tac-toe-game.svg" class="center" width="64" alt="decorative">
+        <form id="createGameForm">
+            <label for="player1" class="hidden">Player 1</label>
+            <input name="player1" id="player1" placeholder="Spieler 1" type="text" required>
+            <br>
+            <label for="player2" class="hidden">Player 2</label>
+            <input name="player2" id="player2" placeholder="Spieler 2" type="text" required>
+            <br>
+            <input type="submit" value="New Game">
+        </form>
+    </div>
+    <div class="winner" id="win">Hat gewonnen</div>
+    <div class="game">
+        <h2 id="playerInfo"></h2>
+        <table class="playground">
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="0"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="1" data-y="0"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="0"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="0" data-y="1"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="1" data-y="1"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="2" data-y="1"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="0" data-y="2"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: 1;" data-x="1" data-y="2"></div>
+                </td>
+                <td>
+                    <div class="playgroundButton" style="--direction: -1;" data-x="2" data-y="2"></div>
+                </td>
+            </tr>
+        </table>
+        <button class="btn-2 reset">Reset game</button>
+        <button class="btn-2 newGame">Create new Game</button>
     </div>
     <ul class="background">
         <li>
-            <img src="/static/icon/burger.svg" alt="decorative">
+            <img src="/burger.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/donut.svg" alt="decorative">
+            <img src="/donut.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/burger.svg" alt="decorative">
+            <img src="/burger.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/donut.svg" alt="decorative">
+            <img src="/donut.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/burger.svg" alt="decorative">
+            <img src="/burger.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/donut.svg" alt="decorative">
+            <img src="/donut.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/burger.svg" alt="decorative">
+            <img src="/burger.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/donut.svg" alt="decorative">
+            <img src="/donut.svg" alt="decorative">
         </li>
         <li>
-            <img src="/static/icon/burger.svg" alt="decorative">
-        </li>
-        <li>
+            <img src="/burger.svg" alt="decorative">
         </li>
     </ul>
-</body>
+</main>
+<script type="module" src="src/js/index.js"></script>
 <script>
-    console.log(window.location.origin);
-    function setPlayerNames() {
-        let player1 = document.getElementById('player1').value;
-        let player2 = document.getElementById('player2').value;
-        sessionStorage.setItem("player1", player1);
-        sessionStorage.setItem("player2", player2);
-        if (player1 !== "" && player2 !== "") {
-            let inputFields = document.querySelectorAll("input[type=text]");
-            inputFields.forEach(element => {
-                element.style.border = "none";
-            })
-            window.location.href = window.location.origin + "/tictactoe.html";
-        }
-        else {
-            let inputFields = document.querySelectorAll("input[type=text]");
-            inputFields.forEach(element => {
-                element.style.border = "2px solid red";
-            })
-        }
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' });
     }
 </script>
+</body>
 
 </html>

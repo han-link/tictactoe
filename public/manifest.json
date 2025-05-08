@@ -1,0 +1,16 @@
+{
+  "lang": "en-us",
+  "name": "Tic Tac Toe",
+  "description": "A fun twist on classic TicTacToe: play with burgers and donuts, and watch the oldest moves disappear starting from turn 3!",
+  "start_url": "/",
+  "background_color": "#030b28",
+  "theme_color": "#088395",
+  "orientation": "natural",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icon512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
