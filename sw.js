@@ -1,4 +1,4 @@
-const CACHE_NAME = `temperature-converter-v1`;
+const CACHE_NAME = `tic-tac-toe-game`;
 
 self.addEventListener('install', event => {
     event.waitUntil((async () => {
